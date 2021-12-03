@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     def authorize
       # get user and respective membership
       @user = User.find_by_id(session[:user_id]) 
-      @membership = UserCourseMembership.find_by_user_id(@user.id)
+      # @membership = UserCourseMembership.find_by_user_id(@user.id)
       
       unless @user
         redirect_to login_url, notice: "Please log in"
