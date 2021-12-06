@@ -58,5 +58,6 @@ module SSID
 
     config.assets.precompile += %w( prettify/prettify.js  explorer_canvas/* jit/*)
     config.assets.precompile += %w( prettify/prettify.css)
+    config.active_record.whitelist_attributes = false
   end
 end
