@@ -10,8 +10,8 @@ development:
   database: ssid_development
   pool: 5
   host: 127.0.0.1
-  username: root
-  password: lostworld
+  username: <%= Rails.application.credentials[Rails.env.to_sym][:database][:username] %>
+  password: <%= Rails.application.credentials[Rails.env.to_sym][:database][:password] %>
   # socket: /var/lib/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -24,9 +24,9 @@ test:
   database: ssid_test
   pool: 5
   host: 127.0.0.1
-  username: root
-  password: lostworld
-  socket: /var/lib/mysql/mysql.sock
+  username: <%= Rails.application.credentials[Rails.env.to_sym][:database][:username] %>
+  password: <%= Rails.application.credentials[Rails.env.to_sym][:database][:password] %>
+  # socket: /var/lib/mysql/mysql.sock
 
 production:
   adapter: mysql2
@@ -35,6 +35,7 @@ production:
   database: ssid_production
   pool: 5
   host: 127.0.0.1
-  username: ssid
-  password: ssid123
+  username: <%= Rails.application.credentials[Rails.env.to_sym][:database][:username] %>
+  password: <%= Rails.application.credentials[Rails.env.to_sym][:database][:password] %>
+  timeout: 5000
   socket: /var/lib/mysql/mysql.sock
